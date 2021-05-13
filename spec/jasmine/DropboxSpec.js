@@ -1,12 +1,12 @@
 let reporters  = require("jasmine-reporters");
-let DropboxController = require("../DropboxController");
+let DropboxController = require("../../controllers/DropboxController");
 
 // let teamCityReporter = new reporters.TeamCityReporter();
 // jasmine.getEnv().addReporter(teamCityReporter);
 let dropboxController = new DropboxController();
 
-describe("Uploading guitar file to DropBox",() =>{
-    it("Guitar file has been loaded successfully!", async () =>{
+describe("Uploading guitar jasmine to DropBox",() =>{
+    it("Guitar jasmine has been loaded successfully!", async () =>{
         let responseStatus;
 
         await dropboxController.uploadFile()
@@ -17,8 +17,8 @@ describe("Uploading guitar file to DropBox",() =>{
     },10000);
 })
 
-describe("Getting guitar file meta data from DropBox",() =>{
-    it("Guitar file meta data has been gotten successfully!", async () =>{
+describe("Getting guitar jasmine meta data from DropBox",() =>{
+    it("Guitar jasmine meta data has been gotten successfully!", async () =>{
         let responseStatus = 0;
 
         await dropboxController.getMetadata()
@@ -29,8 +29,8 @@ describe("Getting guitar file meta data from DropBox",() =>{
     },10000);
 })
 
-describe("Deleting guitar file from DropBox",() =>{
-    it("Guitar file has been deleted successfully!", async () =>{
+describe("Deleting guitar jasmine from DropBox",() =>{
+    it("Guitar jasmine has been deleted successfully!", async () =>{
         let responseStatus;
 
         await dropboxController.deleteFile()
