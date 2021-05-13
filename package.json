@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chai": "^4.3.4",
+    "jasmine": "^3.7.0",
+    "jasmine-reporters": "^2.4.0"
+  }
+}
