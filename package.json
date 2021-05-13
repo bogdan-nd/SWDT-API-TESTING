@@ -4,5 +4,8 @@
     "chai": "^4.3.4",
     "jasmine": "^3.7.0",
     "jasmine-reporters": "^2.4.0"
+  },
+  "scripts": {
+    "test": "jasmine"
   }
 }

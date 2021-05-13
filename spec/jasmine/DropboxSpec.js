@@ -1,8 +1,6 @@
 let reporters  = require("jasmine-reporters");
 let DropboxController = require("../../controllers/DropboxController");
 
-// let teamCityReporter = new reporters.TeamCityReporter();
-// jasmine.getEnv().addReporter(teamCityReporter);
 let dropboxController = new DropboxController();
 
 describe("Uploading guitar jasmine to DropBox",() =>{
