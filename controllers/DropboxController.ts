@@ -2,23 +2,21 @@ import {Constants} from "../constants/Constants";
 import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
 
 class DropboxController {
-    private constants: Constants;
-    private imagePath: string;
     private uploadConfiguration: AxiosRequestConfig;
     private getFileConfiguration: AxiosRequestConfig;
     private deleteFileConfiguration: AxiosRequestConfig;
 
     constructor() {
-        this.constants = new Constants();
-        this.imagePath = "/gibson.jpg";
+        const constants = new Constants();
+        const imagePath = "/gibson.jpg";
 
         this.uploadConfiguration = {
             method: 'post',
-            url: this.constants.dropboxUploadUrl,
+            url: constants.dropboxUploadUrl,
             headers: {
                 'Content-Type': 'application/octet-stream',
-                'Authorization': 'Bearer ' + this.constants.dropboxToken,
-                'Dropbox-API-Arg': `{"mode":"add","path":"${this.imagePath}","mute":false,"autorename":true}`
+                'Authorization': 'Bearer ' + constants.dropboxToken,
+                'Dropbox-API-Arg': `{"mode":"add","path":"${imagePath}","mute":false,"autorename":true}`
             },
             data: {
                 binary: "../images/gibson.jpg"
@@ -27,25 +25,25 @@ class DropboxController {
 
         this.getFileConfiguration = {
             method: 'post',
-            url: this.constants.dropboxMetaDataUrl,
+            url: constants.dropboxMetaDataUrl,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.constants.dropboxToken,
+                'Authorization': 'Bearer ' + constants.dropboxToken,
             },
             data: {
-                "path": this.imagePath
+                "path": imagePath
             }
         };
 
         this.deleteFileConfiguration = {
             method: 'post',
-            url: this.constants.dropboxDeleteUrl,
+            url: constants.dropboxDeleteUrl,
             headers: {
-                'Authorization': 'Bearer ' + this.constants.dropboxToken,
+                'Authorization': 'Bearer ' + constants.dropboxToken,
                 'Content-Type': 'application/json'
             },
             data: {
-                "path": this.imagePath
+                "path": imagePath
             }
         };
     }
