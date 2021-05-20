@@ -4,7 +4,7 @@
     "jasmine-ts": "^0.3.3"
   },
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine-ts"
   },
   "devDependencies": {
     "@types/jasmine": "^3.7.4",
