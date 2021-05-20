@@ -1,7 +1,13 @@
-let Constants = require("../constants/Constants");
-let axios = require("axios");
+import {Constants} from "../constants/Constants";
+import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
 
-class DropboxController{
+class DropboxController {
+    private constants: Constants;
+    private imagePath: string;
+    private uploadConfiguration: AxiosRequestConfig;
+    private getFileConfiguration: AxiosRequestConfig;
+    private deleteFileConfiguration: AxiosRequestConfig;
+
     constructor() {
         this.constants = new Constants();
         this.imagePath = "/gibson.jpg";
@@ -44,17 +50,17 @@ class DropboxController{
         };
     }
 
-    uploadFile(){
+    uploadFile(): Promise<AxiosResponse> {
         return axios(this.uploadConfiguration);
     }
 
-    getMetadata(){
+    getMetadata(): Promise<AxiosResponse> {
         return axios(this.getFileConfiguration);
     }
 
-    deleteFile(){
-        return axios(this.deleteFileConfiguration);
+    deleteFile(): Promise<AxiosResponse> {
+        return axios.request(this.deleteFileConfiguration);
     }
 }
 
-module.exports = DropboxController;
+export {DropboxController}
